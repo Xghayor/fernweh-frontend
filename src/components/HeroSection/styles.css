@@ -1,0 +1,37 @@
+.custom-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%; 
+    padding: 10px;
+    margin-left: 10vh;
+  }
+  
+  .custom-text {
+    position: relative; 
+    flex: 1; 
+    max-width: 25%;
+    height: 400px;
+    text-align: left; 
+    background-color: rgba(205, 201, 196, 0.703);
+  }
+  
+  .custom-text-content {
+    position: absolute;
+    bottom: 30%;
+    left: 0; 
+    padding: 20px; 
+    overflow-wrap: anywhere;
+  }
+
+  .custom-image {
+    flex: 1;
+    max-width: 80%;
+    text-align: center;
+  }
+  
+  .custom-slide-box img {
+    width: 100vh;
+    height: 400px;
+  }
+  

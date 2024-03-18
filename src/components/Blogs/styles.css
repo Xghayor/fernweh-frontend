@@ -1,0 +1,12 @@
+.blogs-slider{
+    margin-left: 10vh;
+}
+
+
+
+.blogs-box {
+    width: 40% !important;
+    background-color: rgba(105, 243, 105, 0.676);
+    border: 1px solid grey;
+    padding: 8vh;
+}
