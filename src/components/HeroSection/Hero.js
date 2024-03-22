@@ -4,8 +4,24 @@ import logo from '../../assets/logo.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
+  const posts = [{
+    id :1,
+    title  : 'hello',
+    content: 'world',
+    image: logo
+  },
+  {
+    id :2,
+    title  : 'yes',
+    content: 'my frnd',
+    image: logo
+  },
+]
+
   const settings = {
     dots: true,
     lazyLoad: true,
@@ -22,32 +38,23 @@ const Hero = () => {
   return (
     <section className="custom-slider-container">
       <Slider {...settings}>
-        <div className="custom-slide-box">
-          <div className="custom-content">
-            <div className="custom-text">
-              <div className="custom-text-content">
-                <h2>Title 1</h2>
-                <p>Short paragraph 1 </p>
+        {posts.map((post) => (
+          <div key={post.id} className="custom-slide-box">
+            <Link to={`/articles/${post.id}`}>
+              <div className="custom-content">
+                <div className="custom-text">
+                  <div className="custom-text-content">
+                    <h2>{post.title}</h2>
+                    <p>{post.content}</p>
+                  </div>
+                </div>
+                <div className="custom-image">
+                  <img src={post.image} alt="Logo" />
+                </div>
               </div>
-            </div>
-            <div className="custom-image">
-              <img src={logo} alt="Logo" />
-            </div>
+            </Link>
           </div>
-        </div>
-        <div className="custom-slide-box">
-          <div className="custom-content">
-            <div className="custom-text">
-              <div className="custom-text-content">
-                <h2>Title 2</h2>
-                <p>Short paragraph 2 </p>
-              </div>
-            </div>
-            <div className="custom-image">
-              <img src={logo} alt="Logo" />
-            </div>
-          </div>
-        </div>
+        ))}
       </Slider>
     </section>
   );

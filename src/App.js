@@ -2,10 +2,12 @@ import './App.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from './components/Header/Navbar';
 import Hero from './components/HeroSection/Hero';
-import Blogs from './components/Blogs/Blogs'
+import Articles from './components/Articles/Articles'
 import Footer from './components/Footer/Footer'
-import Articles from './components/Articles/Articles';
+import Article from './components/Article/Article';
 import Login from './components/Auth/login'
+import Signup from './components/Auth/Signup';
+import Profile from './components/Profile/Profile'
 
 const Layout = () => {
   return (
@@ -29,17 +31,13 @@ const router = createBrowserRouter([
         element: (
           <>
             <Hero />
-            <Blogs />
+            <Articles />
           </>
         )
       },
       {
-        path: "/articles",
-        element: (
-          <>
-           <Articles />
-          </>
-        )
+        path: "/articles/:postId",
+        element: <Article />
       },
       {
         path: "/login",
@@ -48,12 +46,26 @@ const router = createBrowserRouter([
            <Login />
           </>
         )
+      },
+      {
+        path: "/signup",
+        element: (
+          <>
+           <Signup />
+          </>
+        )
+      },
+      {
+        path: "/profile",
+        element: (
+          <>
+           <Profile />
+          </>
+        )
       }
     ],
   },
 ]);
-
-
 
 function App() {
   return (

@@ -3,6 +3,7 @@ import "./styles.css";
 
 const Navbar = () => {
 
+
   return (
     <nav>
       <div className="logo">
@@ -12,11 +13,13 @@ const Navbar = () => {
       <div className="nav-links">
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/articles">Articles</Link></li>
+          <li><Link to="/article">Article</Link></li>
         </ul>
       </div>
       <div className="login-btn">
-        <button><Link to="/login">LOGIN</Link></button>
+        <Link to="/profile">
+          <img className="profile-img" src= "https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg" alt="u" />
+        </Link>
       </div>
     </nav>
   );

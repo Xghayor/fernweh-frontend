@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../Redux/auth/signupSlice';
+import './styles.css'
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -28,13 +29,16 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Username" />
-      <input type="text" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <input type="password" name="password_confirmation" placeholder="Confirm password" />
+    <div className="login-wrapper">
+      <form className="login-form" onSubmit={handleSubmit}>
+      <input className="login-input" type="text" name="name" placeholder="Username" />
+      <input className="login-input" type="text" name="email" placeholder="Email" />
+      <input className="login-input" type="password" name="password" placeholder="Password" />
+      <input className="login-input" type="password" name="password_confirmation" placeholder="Confirm password" />
       <button type="submit">Register</button>
     </form>
+    </div>
+    
   );
 };
 

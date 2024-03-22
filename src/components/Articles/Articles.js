@@ -1,21 +1,26 @@
-import React from "react";
+import React from 'react';
+import './styles.css';
 
 const Articles = () => {
-    return (
-        <section>
-            <div>
-                <p>This place will take the image</p>
-            </div>
-            <div>
-                <h1>Article Title</h1>
-                <p>Article content</p>
-                <p>Comments</p>
-                <p>Likes</p>
-                <button>Add Comment</button>
-                <button>Add likes</button>
-            </div>
-        </section>
-    )
+  return (
+    <section className="blogs-section">
+      <h1 className='blogs-heading'>Discover Asia</h1>
+      <div className='blogs-slider'>
+        <div className='blogs-box'>
+          <h3>1</h3>
+        </div>
+        <div className='blogs-box'>
+          <h3>2</h3>
+        </div>
+        <div className='blogs-box'>
+          <h3>3</h3>
+        </div>
+        <div className='blogs-box'>
+          <h3>4</h3>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Articles;

@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const registerUser = createAsyncThunk('post/registeruser', async (credentials) => {
-  await axios.post('https://httpbin.org/post', credentials, {
+  await axios.post('http://127.0.0.1:3001/signup', credentials, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }

@@ -15,12 +15,12 @@ const fetchPosts = createAsyncThunk('fetch/posts', async (token) => {
   }
 });
 
-const axiosRequest  = async (url, method, token, data = {}) => {
+const axiosRequest = async (url, method, token, data = {}) => {
   try {
     await axios({
-      method,
-      url,
-      data,
+      method: method,
+      url: url,
+      data: data,
       headers: headers(token)
     });
   } catch (error) {
@@ -28,16 +28,18 @@ const axiosRequest  = async (url, method, token, data = {}) => {
   }
 };
 
-const createPost = createAsyncThunk('create/Post', async (token, postData) => {
-  await axiosRequest ('/posts', 'post', token, postData);
+
+const createPost = createAsyncThunk('create/Post', async ({ token, postData }) => {
+  await axiosRequest('/posts', 'post', token, postData);
 });
 
-const updatePost = createAsyncThunk('update/post', async (token, { postId, updatedData }) => {
-  await axiosRequest (`/posts/${postId}`, 'put', token, updatedData);
+const updatePost = createAsyncThunk('update/post', async ({ token, postId, updatedData }) => {
+  await axiosRequest('/posts/' + postId, 'put', token, updatedData);
 });
 
-const deletePost = createAsyncThunk('delete/post', async (token, { postId }) => {
-  await axiosRequest (`/posts/${postId}`, 'delete', token);
+const deletePost = createAsyncThunk('delete/post', async ({ token, postId }) => {
+  await axiosRequest('/posts/' + postId, 'delete', token);
 });
 
 export { fetchPosts, createPost, updatePost, deletePost };
+

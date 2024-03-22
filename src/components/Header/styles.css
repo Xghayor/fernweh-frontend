@@ -67,3 +67,15 @@ nav .login-btn button {
 nav .login-btn button a {
     text-decoration: none;
 }
+
+
+.profile-img { 
+    width: 30px;
+    border-radius: 100%;
+    border: 1px solid grey;
+  }
+
+  .profile-img:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease; 
+  }

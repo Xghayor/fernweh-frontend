@@ -26,24 +26,24 @@ const postSlice = createSlice({
         state.isLoading = false;
         state.error = action.error.message;
       })
-      .addCase(createPost.fulfilled, (state, action) => {
+      .addCase(createPost.fulfilled, () => {
         console.log('Post created successfully');
       })
-      .addCase(createPost.rejected, (state, action) => {
+      .addCase(createPost.rejected, (action) => {
         console.error('Error creating post:', action.error.message);
       })
-      .addCase(updatePost.fulfilled, (state, action) => {
+      .addCase(updatePost.fulfilled, () => {
         console.log('Post updated successfully');
         // You might want to update the state here if needed
       })
-      .addCase(updatePost.rejected, (state, action) => {
+      .addCase(updatePost.rejected, (action) => {
         console.error('Error updating post:', action.error.message);
       })
-      .addCase(deletePost.fulfilled, (state, action) => {
+      .addCase(deletePost.fulfilled, () => {
         console.log('Post deleted successfully');
         // You might want to update the state here if needed
       })
-      .addCase(deletePost.rejected, (state, action) => {
+      .addCase(deletePost.rejected, (action) => {
         console.error('Error deleting post:', action.error.message);
       });
   },
