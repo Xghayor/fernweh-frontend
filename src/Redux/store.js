@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import registerReducer from './auth/signupSlice';
 import loginReducer from './auth/loginSlice';
-import postReducer from './posts/postSlice'
+import postReducer from './articles/articleSlice';
 
 export const store = configureStore({
   reducer: {

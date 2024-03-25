@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPosts, createPost, updatePost, deletePost } from "./postThunk";
+import { fetchPosts, createPost, updatePost, deletePost } from "./articleThunk";
 
 const initialState = {
   isLoading: false,
-  posts: null,
+  posts: [],
   error: null
 };
 
@@ -15,7 +15,7 @@ const postSlice = createSlice({
     builder
       .addCase(fetchPosts.pending, (state) => {
         state.isLoading = true;
-        state.posts = null;
+        state.posts = [];
         state.error = null;
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
