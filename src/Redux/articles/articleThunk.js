@@ -6,9 +6,9 @@ const headers = (token) => ({
   'Authorization': `${token}`
 })
 
-const fetchPosts = createAsyncThunk('fetch/posts', async (token) => {
+const fetchPosts = createAsyncThunk('fetch/posts', async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:3001/api/v1/posts', { headers: headers(token) });
+    const response = await axios.get('http://127.0.0.1:3001/api/v1/posts');
     return response.data;
   } catch (error) {
     throw error;

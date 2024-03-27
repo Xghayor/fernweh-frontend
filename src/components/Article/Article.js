@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createComment, deleteComment } from '../../Redux/comments/commentThunk';
 import { createLike, deleteLike } from '../../Redux/likes/likesThunk';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchPosts } from "../../Redux/articles/articleThunk";
 
 const Article = () => {
   const { postId } = useParams();
-  const token = useSelector(state => state.user.token);
-  const post = useSelector(state => state.posts.find(post => post.id === postId));
+  const token = useSelector(state => state.login.token);
+  const post = useSelector(state => state.post.posts.find(post => post.id === parseInt(postId)));
   const dispatch = useDispatch();
   const [commentText, setCommentText] = useState('');
 
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
   if (!post) {
-    return <div>Post not found</div>;
+    return <div>Post not found</div>
   }
 
   const handlePostComment = () => {
@@ -41,7 +46,7 @@ const Article = () => {
   return (
     <section>
       <div>
-        <p>This place will take the image</p>
+       <img src = {post.image}  alt="post-image"/>
       </div>
       <div>
         <h1>{post.title}</h1>

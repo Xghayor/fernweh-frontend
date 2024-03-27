@@ -14,16 +14,17 @@
   }
   
   .blogs-box {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+    border-radius: 10px;
+    margin-bottom: 30px;
   }
+  
   
 
   .blogs-box:before {

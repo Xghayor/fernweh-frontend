@@ -29,13 +29,14 @@ const Hero = () => {
     autoplaySpeed: 3000
   };
 
- 
+if (data.isLoading || !data) {
+  return (
+    <div>LOADING....</div>
+  )
+}
 
   return (
     <section className="custom-slider-container">
-      {data.isLoading || !data ? (
-        <div>Loading...</div>
-      ) : (
         <Slider {...settings}>
           {data.posts.map((post) => (
             <div key={post.id} className="custom-slide-box">
@@ -55,7 +56,6 @@ const Hero = () => {
             </div>
           ))}
         </Slider>
-      )}
     </section>
   );
   
