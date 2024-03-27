@@ -30,7 +30,14 @@ const getUser = createAsyncThunk('get/User', async (userId, { getState }) => {
 });
 
 
-const userData = JSON.parse(decodeURIComponent(document.cookie?.split('=')[1] || 'null'));
+let userData;
+try {
+  userData = JSON.parse(decodeURIComponent(document.cookie?.split('=')[1] || 'null'));
+} catch (error) {
+  console.error('Error parsing user data:', error);
+  userData = null;
+}
+
 
 const initialState = {
   isLoading: false,
@@ -48,7 +55,8 @@ const loginSlice = createSlice({
       state.user = null;
       state.token = null;
       state.error = null;
-    }
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    } 
   },
   extraReducers: (builder) => {
     builder

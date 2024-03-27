@@ -8,6 +8,7 @@ import Article from './components/Article/Article';
 import Login from './components/Auth/login'
 import Signup from './components/Auth/Signup';
 import Profile from './components/Profile/Profile'
+import About from './components/About/About'
 
 const Layout = () => {
   return (
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
           <>
             <Hero />
             <Articles />
+          </>
+        )
+      },
+      {
+        path: "/about",
+        element: (
+          <>
+           <About />
           </>
         )
       },

@@ -14,7 +14,7 @@ const Hero = () => {
 
   useEffect(() => {
     dispatch(fetchPosts(token))
-  }, [token])
+  }, [token, dispatch])
 
   const settings = {
     dots: true,
@@ -29,14 +29,13 @@ const Hero = () => {
     autoplaySpeed: 3000
   };
 
-if (data.isLoading || !data) {
-  return (
-    <div>LOADING....</div>
-  )
-}
-
-  return (
-    <section className="custom-slider-container">
+  if (data.isLoading) {
+    return <div>LOADING...</div>
+  } else if (data.error) {
+    return <div className='error'>{data.error}</div>
+  } else {
+    return (
+      <section className="custom-slider-container">
         <Slider {...settings}>
           {data.posts.map((post) => (
             <div key={post.id} className="custom-slide-box">
@@ -56,9 +55,9 @@ if (data.isLoading || !data) {
             </div>
           ))}
         </Slider>
-    </section>
-  );
-  
+      </section>
+    );
+  }
 }
 
 export default Hero;

@@ -79,3 +79,18 @@ nav .login-btn button a {
     opacity: 0.8;
     transition: opacity 0.3s ease; 
   }
+
+  .round-btn {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  

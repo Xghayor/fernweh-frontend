@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../Redux/auth/loginSlice';
 import './styles.css'
 
@@ -52,10 +52,12 @@ const Login = () => {
           />
         </div>
         <button type="submit">Login</button>
-      </form>
         <div>
-        <button>If you're not registered, please <Link to="/signup">register</Link> first.</button>
+          <p className="signup-btn">
+            If you're not registered, please <Link to="/signup">Sign Up</Link> first.
+          </p>
         </div>
+      </form>
     </div>
   );
 };
